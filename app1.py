@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ---------- Estilos Personalizados (Fondo Blanco Elegante + Alto Contraste) ----------
+
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -129,35 +129,22 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ---------- Encabezado Principal ----------
-st.markdown('<div class="hero-tag">✨ Lector Inteligente de Texto</div>', unsafe_allow_html=True)
-st.markdown('<h1 class="hero-title">Convierte tus imágenes a texto</h1>', unsafe_allow_html=True)
-st.markdown('<p class="hero-subtitle">Toma una foto o sube una imagen desde tu dispositivo. Nosotros nos encargamos de extraer todo el texto para que puedas copiarlo o descargarlo al instante.</p>', unsafe_allow_html=True)
+# ---------- Principal ----------
+st.markdown('<div class="hero-tag">Lector de Texto:</div>', unsafe_allow_html=True)
+st.markdown('<h1 class="hero-title">Tus imágenes a texto</h1>', unsafe_allow_html=True)
+st.markdown('<p class="hero-subtitle">Toma una foto o sube una imagen; nos encargamos de extraer todo el texto para que puedas copiarlo o descargarlo.</p>', unsafe_allow_html=True)
 
 # ---------- Barra Lateral ----------
 with st.sidebar:
-    st.header("🛠️ Herramientas")
+    st.header("Herramientas:")
     
-    st.subheader("1. Método de entrada")
+    st.subheader("- Método de entrada")
     metodo = st.radio(
-        "¿Cómo prefieres ingresar la imagen?",
-        ("📷 Usar cámara", "📁 Subir un archivo"),
-        help="Elige la opción que te sea más cómoda."
+        "¿Cómo ingresar la imagen?",
+        ("Usar cámara", "Subir un archivo"),
+        help="Elige la opción que desees"
     )
     
-    st.markdown("---")
-    st.subheader("2. Ajuste de imagen")
-    
-    filtro = st.radio(
-        "Mejorar lectura:",
-        ('Sin cambios', 'Escala de grises', 'Blanco y negro (Umbral)', 'Invertir colores'),
-        help="Si la foto tiene mala iluminación o poco contraste, probar con estos filtros ayuda al sistema a leer mejor."
-    )
-    
-    umbral_val = 128
-    if filtro == 'Blanco y negro (Umbral)':
-        umbral_val = st.slider("Sensibilidad", 0, 255, 128, help="Ajusta el nivel de negro/blanco para resaltar las letras.")
-
     st.markdown("---")
     st.subheader("3. Idioma")
     idioma = st.selectbox("Idioma del texto:", ("Español", "Inglés"), index=0)
