@@ -7,7 +7,6 @@ from PIL import Image
 # ---------- Configuración de la página ----------
 st.set_page_config(
     page_title="Lector de Texto OCR",
-    page_icon="🔎",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -146,7 +145,7 @@ with st.sidebar:
     )
     
     st.markdown("---")
-    st.subheader("3. Idioma")
+    st.subheader("- Idioma")
     idioma = st.selectbox("Idioma del texto:", ("Español", "Inglés"), index=0)
     lang_code = "spa" if idioma == "Español" else "eng"
 
@@ -216,7 +215,7 @@ if img_cv is not None:
                     help="Guarda el texto en un archivo de notas en tu equipo."
                 )
             else:
-                st.warning("🔍 No logramos encontrar texto claro en esta imagen. Intenta acercar más la cámara, mejorar la iluminación o cambiar el filtro en la barra lateral.")
+                st.warning(" No logramos encontrar texto claro en esta imagen. Intenta acercar más la cámara, mejorar la iluminación o cambiar el filtro en la barra lateral.")
 
         except pytesseract.TesseractNotFoundError:
             st.error("⚠️ No se encontró el motor Tesseract en el sistema. Asegúrate de tenerlo instalado en tu equipo o servidor.")
